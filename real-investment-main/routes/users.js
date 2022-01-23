@@ -37,8 +37,8 @@ router.post("/", async (req, res) => {
         user.password = req.body.password;
 
         await user.save();
-        user.password = "********";
-        res.json(user);
+        let newToken = genToken(user._id);
+        res.json({ token: newToken });
     }
     catch (err) {
         console.log(err);
@@ -71,7 +71,35 @@ router.post("/login", async (req, res) => {
 
     let newToken = genToken(user._id);
     res.json({ token: newToken });
-    console.log(newToken);
+})
+
+router.post("/edit", atuhToken, async (req, res) => {
+    let user = await UserModel.findOne({ _id: req.tokenData._id }, { password: 0 });
+
+    if(req.body.businessName)
+    {
+        user.businessName = req.body.businessName;
+    }
+
+    if(req.body.businessAddress){
+        user.businessAddress = req.body.businessAddress;
+    }
+    
+    if(req.body.businessEmail){
+        user.businessEmail = req.body.businessEmail;
+    }
+
+    if(req.body.businessDescription){
+        user.businessDescription = req.body.businessDescription;
+    }
+
+    if(req.body.firstName){
+        user.firstName = req.body.firstName;
+    }
+
+    await user.save();
+
+    res.json({ user });
 })
 
 module.exports = router;

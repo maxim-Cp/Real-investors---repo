@@ -1,6 +1,6 @@
-function setUserToUIHome(){
-    let userHome = JSON.parse(localStorage.getItem("user"));
-    document.getElementById("hello-user").innerText = userHome.firstName
+function setUserToUI(){
+    let user = JSON.parse(localStorage.getItem("user"));
+    let userNameSpan = document.getElementById('username');
 
-   
+    userNameSpan.innerText += user.firstName;
 }

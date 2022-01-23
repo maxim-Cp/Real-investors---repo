@@ -52,8 +52,8 @@ ul li a:hover
     color: red;
 }
 .tit{
-    margin-top: 100px;
-    margin-left: 600px;
+    margin-top: 130px;
+    margin-left: 620px;
     font-size: 60px;
     color: #333;
 }
@@ -84,6 +84,19 @@ ul li a:hover
     margin-right: 40px;
 }
 
+.navbar-toggler-icon{
+    margin-left: auto;
+}
+.navbar-brand{
+    margin-left: 16px;
+}
+li{
+    padding-left: 14px;
+}
+label{
+    margin-left: 12px;
+}
+
 /**image**/
 .img{
     width: 100%;
@@ -94,10 +107,11 @@ ul li a:hover
     min-width: 300px;
     min-height: 200px;
     border: 2px solid #dddddd;
-    margin-top: -180px;
-    margin-left: 35px;
-    
-    
+    margin-top: -111px;
+    margin-left: 80px;
+    max-height: 200px;
+    overflow: hidden;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -138,4 +152,18 @@ table, td{
  table tbody{
    
     font-size: 20px;
+ }
+
+ .img{
+     position: relative;
+ }
+
+ .image-preview{
+     background-color: white;
+ }
+
+ .img input{
+     position: absolute;
+     top: 30%;
+     z-index: -1;
  }
